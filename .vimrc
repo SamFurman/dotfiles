@@ -1,4 +1,14 @@
 set backspace=indent,eol,start
+set tabstop=4
+set expandtab
+set autoindent
+set shiftwidth=4
+set ruler
+set number
+set visualbell
+set vb t_vb=""
+
+
 " Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -15,9 +25,15 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdtree'
 call plug#end()
 set termguicolors
 colorscheme dracula
+
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <c-n> :NERDTree<CR>
+nnoremap <leader>n :NERDTreeFocus<CR>
 
 " May need for vim (not neovim) since coc.nvim calculate byte offset by count
 " utf-8 byte sequence.
