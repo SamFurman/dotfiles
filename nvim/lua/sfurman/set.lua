@@ -21,4 +21,6 @@ vim.opt.scrolloff = 8
 
 vim.colorcolumn = "80"
 
-vim.g.mapleader = " "
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
+
