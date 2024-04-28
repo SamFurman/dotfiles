@@ -79,20 +79,31 @@ _G.packer_plugins = {
     path = "/Users/sfurman/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["auto-pairs"] = {
-    loaded = true,
-    path = "/Users/sfurman/.local/share/nvim/site/pack/packer/start/auto-pairs",
-    url = "https://github.com/jiangmiao/auto-pairs"
-  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/sfurman/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  chatgpt = {
+    loaded = true,
+    path = "/Users/sfurman/.local/share/nvim/site/pack/packer/start/chatgpt",
+    url = "https://github.com/jackMort/ChatGPT.nvim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/sfurman/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  comment = {
+    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0" },
+    loaded = true,
+    path = "/Users/sfurman/.local/share/nvim/site/pack/packer/start/comment",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
+  ["lexima.vim"] = {
+    loaded = true,
+    path = "/Users/sfurman/.local/share/nvim/site/pack/packer/start/lexima.vim",
+    url = "https://github.com/cohama/lexima.vim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -108,6 +119,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/sfurman/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["neo-tree"] = {
+    loaded = true,
+    path = "/Users/sfurman/.local/share/nvim/site/pack/packer/start/neo-tree",
+    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/Users/sfurman/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -150,6 +171,11 @@ _G.packer_plugins = {
     path = "/Users/sfurman/.local/share/nvim/site/pack/packer/start/treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["trouble.nvim"] = {
+    loaded = true,
+    path = "/Users/sfurman/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/sfurman/.local/share/nvim/site/pack/packer/start/vim-fugitive",
@@ -163,6 +189,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: comment
+time([[Config for comment]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "comment")
+time([[Config for comment]], false)
 -- Config for: rose-pine
 time([[Config for rose-pine]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0", "config", "rose-pine")

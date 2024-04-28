@@ -4,9 +4,8 @@ return require('packer').startup(function(use)
   --manage packer itself
   use 'wbthomason/packer.nvim'
 
-  -- close brances on enter
-  use {'jiangmiao/auto-pairs', as='auto-pairs'}
-
+  -- matching braces
+  use 'cohama/lexima.vim'
 
   -- color scheme
   use {
@@ -65,6 +64,37 @@ return require('packer').startup(function(use)
           {'hrsh7th/cmp-nvim-lsp'}, -- Required
           {'L3MON4D3/LuaSnip'},     -- Required
       }
-}
+  }
 
+  --chat gpt
+  use {
+      'jackMort/ChatGPT.nvim',
+      requires = {
+          'MunifTanjim/nui.nvim',
+          'nvim-lua/plenary.nvim',
+          'folke/trouble.nvim',
+          'nvim-telescope/telescope.nvim',
+      },
+      as = 'chatgpt'
+  }
+
+  use {
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v3.x",
+      requires = { 
+          "nvim-lua/plenary.nvim",
+          "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+          "MunifTanjim/nui.nvim",
+          -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+      },
+      as = 'neo-tree'
+  }
+
+  use {
+      'numToStr/Comment.nvim',
+      as = 'comment',
+      config = function()
+          require('Comment').setup()
+      end
+  }
 end)
