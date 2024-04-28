@@ -1,59 +1,46 @@
-vim.cmd [[packadd packer.nvim]]
-
-return require('packer').startup(function(use)
-  --manage packer itself
-  use 'wbthomason/packer.nvim'
-
-  -- matching braces
-  use 'cohama/lexima.vim'
-
-  -- color scheme
-  use {
+require('lazy').setup({
+  {
+      -- color scheme
 	  'rose-pine/neovim',
-	  as = 'rose-pine',
+	  name = 'rose-pine',
 	  config = function()
 		  vim.cmd('colorscheme rose-pine')
 	  end,
-  }
-  -- fuzzy find files
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
-
-  -- parsing AST
-  use {
+  },
+  {
+      -- fuzzy find files
+	  'nvim-telescope/telescope.nvim', version = '0.1.x',
+	  dependencies = { {'nvim-lua/plenary.nvim'} }
+  },
+  -- matching braces
+  'cohama/lexima.vim',
+  -- git interop
+  'tpope/vim-fugitive',
+  {
+      -- parsing AST
 	  'nvim-treesitter/nvim-treesitter',
-	  as = 'treesitter',
-	  run = function()
+	  name = 'treesitter',
+	  build = function()
 		  vim.cmd(':TSUpdate')
 	  end,
-  }
-
-  -- navigate between vim and tmux
-  use {
+  },
+  {
+      -- navigate between vim and tmux
       'christoomey/vim-tmux-navigator',
-      as = 'vim-tmux-navigator',
-  }
-
+      name = 'vim-tmux-navigator',
+  },
   -- display active buffers
-  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
-
-  --interop with git
-  use {
-	  'tpope/vim-fugitive',
-  }
-
-  --lsp zero
-  use {
+  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
+  {
+      --lsp zero
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v2.x',
-	  requires = {
+	  dependencies = {
 		  -- LSP Support
 		  {'neovim/nvim-lspconfig'},             -- Required
 		  {                                      -- Optional
 		  'williamboman/mason.nvim',
-		  run = function()
+		  build = function()
 			  pcall(vim.cmd, 'MasonUpdate')
 		  end,
           },
@@ -64,37 +51,34 @@ return require('packer').startup(function(use)
           {'hrsh7th/cmp-nvim-lsp'}, -- Required
           {'L3MON4D3/LuaSnip'},     -- Required
       }
-  }
-
-  --chat gpt
-  use {
+  },
+  {
+      --chat gpt
       'jackMort/ChatGPT.nvim',
-      requires = {
+      dependencies = {
           'MunifTanjim/nui.nvim',
           'nvim-lua/plenary.nvim',
           'folke/trouble.nvim',
           'nvim-telescope/telescope.nvim',
       },
-      as = 'chatgpt'
-  }
-
-  use {
+      name = 'chatgpt'
+  },
+  {
       "nvim-neo-tree/neo-tree.nvim",
       branch = "v3.x",
-      requires = { 
+      dependencies = { 
           "nvim-lua/plenary.nvim",
           "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
           "MunifTanjim/nui.nvim",
           -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
       },
-      as = 'neo-tree'
-  }
-
-  use {
+      name = 'neo-tree'
+  },
+  {
       'numToStr/Comment.nvim',
-      as = 'comment',
+      name = 'comment',
       config = function()
           require('Comment').setup()
       end
   }
-end)
+})
